@@ -5,8 +5,8 @@ class RadioScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text('Radio'),
+    return Center(
+      child: Text('Radio'),
     );
   }
 }

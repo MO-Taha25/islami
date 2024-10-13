@@ -5,8 +5,8 @@ class HadethScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text('Hadeth'),
+    return Center(
+      child: Text('Hadeth'),
     );
   }
 }

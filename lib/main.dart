@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami/app_them.dart';
 import 'package:islami/home_Screen.dart';
+import 'package:islami/quran/Sures.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +17,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         HomeScreen.routeName: (_) => HomeScreen(),
+        SuresScreen.routName: (_) => SuresScreen(),
       },
       initialRoute: HomeScreen.routeName,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-      themeMode: ThemeMode.system,
+      theme: AppThem.lightThem,
+      darkTheme: AppThem.darkThem,
+      themeMode: ThemeMode.light,
     );
   }
 }
