@@ -131,7 +131,9 @@ class QuranScreen extends StatelessWidget {
           child: ListView.builder(
             itemBuilder: (_, index) => InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed(SuresScreen.routName);
+                Navigator.of(context).pushNamed(SuresScreen.routName,
+                    arguments:
+                        SuraContArgs(suraName: sura[index], index: index));
               },
               child: Text(
                 sura[index],
@@ -145,4 +147,10 @@ class QuranScreen extends StatelessWidget {
       ],
     );
   }
+}
+
+class SuraContArgs {
+  String suraName;
+  int index;
+  SuraContArgs({required this.suraName, required this.index});
 }
