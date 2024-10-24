@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/hadeth/hadethContent.dart';
+import 'package:islami/hadeth/ahdeth.dart';
 import 'package:islami/hadeth/hadeth_tap.dart';
 
-class HadethScreen extends StatelessWidget {
+class HadethScreen extends StatefulWidget {
+  @override
+  State<HadethScreen> createState() => _HadethScreenState();
+}
+
+class _HadethScreenState extends State<HadethScreen> {
   List<HadethTap> ahadeth = [];
 
   @override
   Widget build(BuildContext context) {
+    LoadAhadethFile();
     return Center(
       child: Column(
         children: [
@@ -40,6 +46,13 @@ class HadethScreen extends StatelessWidget {
     String ahadthFileConten =
         await rootBundle.loadString('assets/text/ahadeth.txt');
     List<String> ahadthString = ahadthFileConten.split('#');
-   ahadeth = ahadthString.map(()) 
+    ahadeth = ahadthString.map((hadethString) {
+      List<String> ahadethLins = hadethString.trim().split('\n');
+      String title = ahadethLins[0];
+      ahadethLins.removeAt(0);
+      List<String> content = ahadethLins;
+      return HadethTap(title, content);
+    }).toList();
+    setState(() {});
   }
 }

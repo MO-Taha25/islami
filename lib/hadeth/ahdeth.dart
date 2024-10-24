@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/app_them.dart';
-import 'package:islami/quran/quran.dart';
+import 'package:islami/hadeth/hadeth_tap.dart';
 
 class Hadethcontent extends StatelessWidget {
   static const String routName = '/hadeth';
-  late SuraContArgs arg;
-  List<String> ayat = [];
   @override
   Widget build(BuildContext context) {
-    arg = ModalRoute.of(context)!.settings.arguments as SuraContArgs;
-    
+    HadethTap hadeth = ModalRoute.of(context)!.settings.arguments as HadethTap;
+
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -19,7 +17,7 @@ class Hadethcontent extends StatelessWidget {
         )),
         child: Scaffold(
           appBar: AppBar(
-            title: Text(arg.suraName),
+            title: Text(hadeth.title),
           ),
           body: Container(
             padding: EdgeInsets.all(24),
@@ -28,18 +26,14 @@ class Hadethcontent extends StatelessWidget {
                 color: AppThem.white,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
             child: ListView.builder(
-              itemBuilder: (_, index) {
-                Text(
-                  ayat[index],
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  textAlign: TextAlign.center,
-                );
-              },
-              itemCount: ayat.length,
+              itemBuilder: (_, index) => Text(
+                hadeth.content[index],
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+              itemCount: hadeth.content.length,
             ),
           ),
         ));
   }
-
-  
 }
