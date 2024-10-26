@@ -12,6 +12,7 @@ class AppThem {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       backgroundColor: Colors.transparent,
+      foregroundColor: black,
       titleTextStyle:
           TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: black),
     ),
@@ -34,8 +35,9 @@ class AppThem {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       backgroundColor: Colors.transparent,
+      foregroundColor: white,
       titleTextStyle:
-          TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: black),
+          TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: white),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: darkPrimay,
@@ -46,7 +48,7 @@ class AppThem {
     scaffoldBackgroundColor: Colors.transparent,
     textTheme: TextTheme(
         headlineLarge:
-            TextStyle(fontSize: 25, color: black, fontWeight: FontWeight.w900),
+            TextStyle(fontSize: 25, color: white, fontWeight: FontWeight.w900),
         bodyMedium:
             TextStyle(fontSize: 25, color: white, fontWeight: FontWeight.bold)),
   );

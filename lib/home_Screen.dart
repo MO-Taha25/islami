@@ -3,7 +3,9 @@ import 'package:islami/hadeth/hadeth.dart';
 import 'package:islami/quran/quran.dart';
 import 'package:islami/radio/radio.dart';
 import 'package:islami/sbaha/sabah.dart';
+import 'package:islami/settings/setting_tap.dart';
 import 'package:islami/settings/settings.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -27,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-        image: AssetImage('assets/images/default_bg.png'),
+        image: AssetImage(
+            'assets/images/${Provider.of<SettingsProvider>(context).backgroundImagName}.png'),
         fit: BoxFit.cover,
       )),
       child: Scaffold(

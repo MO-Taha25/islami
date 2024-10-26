@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/app_them.dart';
 import 'package:islami/hadeth/hadeth_tap.dart';
+import 'package:islami/settings/settings.dart';
+import 'package:provider/provider.dart';
 
 class Hadethcontent extends StatelessWidget {
   static const String routName = '/hadeth';
@@ -12,7 +14,8 @@ class Hadethcontent extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage('assets/images/default_bg.png'),
+          image: AssetImage(
+              'assets/images/${Provider.of<SettingsProvider>(context).backgroundImagName}.png'),
           fit: BoxFit.cover,
         )),
         child: Scaffold(
@@ -28,7 +31,7 @@ class Hadethcontent extends StatelessWidget {
             child: ListView.builder(
               itemBuilder: (_, index) => Text(
                 hadeth.content[index],
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: TextStyle(fontSize: 24, color: Colors.black),
                 textAlign: TextAlign.center,
               ),
               itemCount: hadeth.content.length,
