@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami/app_them.dart';
+import 'package:islami/function.dart/llineFunction.dart';
 import 'package:islami/quran/Sures.dart';
 
 class QuranScreen extends StatelessWidget {
@@ -242,21 +244,69 @@ class QuranScreen extends StatelessWidget {
           'assets/images/qur2an_screen_logo.png',
           height: MediaQuery.sizeOf(context).height * 0.25,
         ),
+        SizedBox(
+          height: 10,
+        ),
         Expanded(
-          child: ListView.builder(
-            itemBuilder: (_, index) => InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(SuresScreen.routName,
-                    arguments:
-                        SuraContArgs(suraName: sura[index], index: index));
-              },
-              child: Text(
-                sura[index],
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineLarge,
+          flex: 7,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Column(
+                children: [
+                  LineFunction(),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: Text(
+                        'عدد الآيات',
+                        style: Theme.of(context).textTheme.headlineLarge,
+                        textAlign: TextAlign.center,
+                      )),
+                      Expanded(
+                          child: Text(
+                        'إسم السورة',
+                        style: Theme.of(context).textTheme.headlineLarge,
+                        textAlign: TextAlign.center,
+                      )),
+                    ],
+                  ),
+                  LineFunction(),
+                  Expanded(
+                    child: ListView.builder(
+                      itemBuilder: (_, index) => InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(SuresScreen.routName,
+                              arguments: SuraContArgs(
+                                  suraName: sura[index], index: index));
+                        },
+                        child: Row(
+                          children: [
+                            Expanded(
+                                child: Text(
+                              versesNumber[index].toString(),
+                              style: Theme.of(context).textTheme.headlineLarge,
+                              textAlign: TextAlign.center,
+                            )),
+                            Expanded(
+                                child: Text(
+                              sura[index],
+                              style: Theme.of(context).textTheme.headlineLarge,
+                              textAlign: TextAlign.center,
+                            )),
+                          ],
+                        ),
+                      ),
+                      itemCount: sura.length,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            itemCount: sura.length,
+              VerticalDivider(
+                thickness: 3,
+                color: AppThem.LightPrimay,
+              ),
+            ],
           ),
         ),
       ],

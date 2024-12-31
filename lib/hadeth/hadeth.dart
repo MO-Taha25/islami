@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/function.dart/llineFunction.dart';
 import 'package:islami/hadeth/ahdeth.dart';
 import 'package:islami/hadeth/hadeth_tap.dart';
 
@@ -20,6 +21,22 @@ class _HadethScreenState extends State<HadethScreen> {
           Image.asset(
             'assets/images/hadeth_logo.png',
             height: MediaQuery.sizeOf(context).height * 0.25,
+          ),
+          Column(
+            children: [
+              LineFunction(),
+              Row(
+                children: [
+                  Expanded(
+                      child: Text(
+                    'الأحاديث',
+                    style: Theme.of(context).textTheme.headlineLarge,
+                    textAlign: TextAlign.center,
+                  )),
+                ],
+              ),
+              LineFunction(),
+            ],
           ),
           Expanded(
             child: ListView.builder(
